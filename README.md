@@ -7,8 +7,6 @@
   •
   <a href="#-projeto">Projeto</a>
   •
-  <a href="#-autor">Autor</a>
-  •
   <a href="#-licença">Licença</a>
 </p>
 
