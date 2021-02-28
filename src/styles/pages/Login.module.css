@@ -1,13 +1,12 @@
 .container {
-  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   background: url('/gradient_logo.svg') left center no-repeat var(--blue);
   background-size: 80vh;
 
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
-  overflow-x: hidden;
 }
 
 .container > div {

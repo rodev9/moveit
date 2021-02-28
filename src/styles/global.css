@@ -48,3 +48,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+#__next {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+#__next > div {
+  height: 100vh;
+}

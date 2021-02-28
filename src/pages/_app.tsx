@@ -1,10 +1,17 @@
+import { useRouter } from 'next/router'
 
+import Sidebar from '../components/Sidebar'
 
 import '../styles/global.css'
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+
   return (
-    <Component {...pageProps} />
+    <>
+      { router.pathname !== '/login' && <Sidebar /> }
+      <Component {...pageProps} />
+    </>
   )
 }
 
