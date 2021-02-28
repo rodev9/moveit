@@ -12,6 +12,10 @@ export default (req, res) => NextAuth(req, res, {
       clientId: process.env.DISCORD_CLIENT_ID,
       clientSecret: process.env.DISCORD_CLIENT_SECRET,
       scope: 'identify'
+    }),
+    Providers.GitLab({
+      clientId: process.env.GITLAB_CLIENT_ID,
+      clientSecret: process.env.GITLAB_CLIENT_SECRET
     })
   ],
   pages: {

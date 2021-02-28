@@ -7,7 +7,7 @@ import LogoFull from '../assets/logo-full.svg'
 
 import styles from '../styles/pages/Login.module.css'
 import { ImGithub, ImArrowRight2 } from 'react-icons/im'
-import { SiDiscord } from 'react-icons/si'
+import { SiDiscord, SiGitlab } from 'react-icons/si'
 
 const Login: React.FC = () => {
   const [provider, setProvider] = useState('github')
@@ -24,12 +24,13 @@ const Login: React.FC = () => {
         <h2>Bem-vindo</h2>
 
         <p>
-          { provider === 'github' ? <ImGithub /> : provider === 'discord' && <SiDiscord /> }
+          { provider === 'github' ? <ImGithub /> : provider === 'discord' ? <SiDiscord /> : provider === 'gitlab' && <SiGitlab /> }
           <span>
             Faça login com seu
             <select value={provider} onChange={e => setProvider(e.target.value)}>
               <option value="github">Github</option>
               <option value="discord">Discord</option>
+              <option value="gitlab">GitLab</option>
             </select>
             para começar
           </span>
