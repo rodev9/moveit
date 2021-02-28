@@ -4,19 +4,22 @@
   background: var(--white);
   border-radius: 5px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem 2rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  overflow: hidden;
 }
 
 .notActive {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  padding: 1.5rem 2rem;
 }
 
 .notActive strong {
@@ -45,11 +48,14 @@
   flex-direction: column;
 }
 
+.active header, .active main {
+  padding: 1.5rem 2rem;
+}
+
 .active header {
   color: var(--blue);
   font-weight: 600;
   font-size: 1.25rem;
-  padding: 0 2rem 1.5rem;
   border-bottom: 1px solid var(--gray-line);
 }
 
@@ -75,9 +81,8 @@
 .active footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
 
-  margin-top: 1rem;
+  border-top: 1px solid var(--gray-line);
 }
 
 .active footer button {
@@ -88,31 +93,45 @@
   justify-content: center;
 
   border: 0;
-  border-radius: 5px;
-
-  color: var(--white);
 
   font-size: 1rem;
   font-weight: 600;
 
-  transition: filter .2s;
+  transition: background-color .2s, color .2s;
 }
 
 .active footer button.failedButton {
-  background: var(--red);
+  background: #FFF5F5;
+  color: var(--red);
+
+  border-right: 1px solid var(--gray-line);
 }
 
 .active footer button.succeededButton {
-  background: var(--green);
+  background: #F7FFF5;
+  color: var(--green);
 }
 
 .active footer button:hover {
-  filter: brightness(0.9);
+  color: var(--white);
+}
+
+.active footer button.failedButton:hover {
+  background: var(--red);
+}
+
+.active footer button.succeededButton:hover {
+  background: var(--green);
 }
 
 @media (max-width: 710px) {
   .active footer {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+  }
+
+  .active footer button.failedButton {
+    border-right: 0;
+    border-bottom: 1px solid var(--gray-line);
   }
 }
