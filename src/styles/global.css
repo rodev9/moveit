@@ -15,6 +15,7 @@
   --green: #4CD62B;
   --blue: #5965E0;
   --blue-dark: #4953B8;
+  --blue-dark2: #414AA3;
   --blue-twitter: #2AA9E0;
 }
 
@@ -35,7 +36,7 @@ body {
   color: var(--text);
 }
 
-body, input, textarea, button {
+body, input, textarea, button, select {
   font: 400 1rem 'Inter', sans-serif;
 }
 

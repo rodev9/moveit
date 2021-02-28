@@ -1,5 +1,6 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
+import { getSession } from 'next-auth/client'
 import Head from 'next/head'
 
 import styles from '../styles/pages/Home.module.css'
@@ -17,6 +18,8 @@ interface Props {
   level: number
   xp: number
   challengesCompleted: number
+  name: string
+  avatar_url: string
 }
 
 const Home: React.FC<Props> = (props) => {
@@ -36,7 +39,7 @@ const Home: React.FC<Props> = (props) => {
         <CountdownProvider>
           <section>
             <div>
-              <Profile />
+              <Profile name={props.name} avatar_url={props.avatar_url} />
               <CompletedChallenges />
               <Countdown />
             </div>
@@ -55,12 +58,21 @@ export default Home
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { level, xp, challengesCompleted } = context.req.cookies
+  const session = await getSession(context)
 
-  return {
+  if (session) return {
     props: {
       level: Number(level),
       xp: Number(xp),
-      challengesCompleted: Number(challengesCompleted)
+      challengesCompleted: Number(challengesCompleted),
+      name: session.user.name,
+      avatar_url: session.user.image 
+    }
+  }
+  else return {
+    redirect: {
+      destination: '/login',
+      permanent: false
     }
   }
 }
