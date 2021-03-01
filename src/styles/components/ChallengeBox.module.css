@@ -79,6 +79,7 @@
 }
 
 .active footer {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
 
@@ -122,6 +123,11 @@
 
 .active footer button.succeededButton:hover {
   background: var(--green);
+}
+
+.active footer > span {
+  position: absolute;
+  top: -2.5px;
 }
 
 @media (max-width: 710px) {

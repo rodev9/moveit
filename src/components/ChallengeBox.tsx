@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useChallenge } from '../contexts/ChallengesContext'
 import { useCountdown } from '../contexts/CountdownContext'
+
+import BarLoader from 'react-spinners/BarLoader'
 
 import LevelUpIcon from '../assets/level-up.svg'
 import EyeIcon from '../assets/eye.svg'
@@ -12,9 +14,15 @@ const ChallengeBox: React.FC = () => {
   const { challenge, completeChallenge, resetChallenge } = useChallenge()
   const { resetCountdown } = useCountdown()
 
-  function handleChallengeSucceeded() {
-    completeChallenge()
+  const [isLoading, setIsLoading] = useState(false)
+
+  async function handleChallengeSucceeded() {
+    setIsLoading(true)
+
+    await completeChallenge()
     resetCountdown()
+
+    setIsLoading(false)
   }
 
   function handleChallengeFailed() {
@@ -35,20 +43,29 @@ const ChallengeBox: React.FC = () => {
           </main>
 
           <footer>
-            <button
-              type="button"
-              className={styles.failedButton}
-              onClick={handleChallengeFailed}
-            >
-              Falhei :(
-            </button>
-            <button
-              type="button"
-              className={styles.succeededButton}
-              onClick={handleChallengeSucceeded}
-            >
-              Consegui! :D
-            </button>
+              <BarLoader
+                color="var(--blue)"
+                width="100%"
+                loading={isLoading}
+              />
+              
+              <button
+                type="button"
+                className={styles.failedButton}
+                onClick={handleChallengeFailed}
+                disabled={isLoading}
+              >
+                Falhei :(
+              </button>
+
+              <button
+                type="button"
+                className={styles.succeededButton}
+                onClick={handleChallengeSucceeded}
+                disabled={isLoading}
+              >
+                Consegui! :D
+              </button>
           </footer>
         </div>
       ) : (

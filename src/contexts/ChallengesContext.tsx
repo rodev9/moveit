@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import Cookies from 'js-cookie'
+
+import axios from 'axios'
 
 import challenges from '../../challenges.json'
 
@@ -21,7 +22,7 @@ interface ChallengesContextData {
   challengesCompleted: number
   challenge: Challenge | null
   startNewChallenge(): void
-  completeChallenge(): void
+  completeChallenge(): Promise<void>
   resetChallenge(): void
   closeLevelUpModal(): void
 }
@@ -38,9 +39,9 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
   children,
   ...rest
 }) => {
-  const [level, setLevel] = useState(rest.level ?? 1)
-  const [xp, setXp] = useState(rest.xp ?? 0)
-  const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0)
+  const [level, setLevel] = useState(rest.level)
+  const [xp, setXp] = useState(rest.xp)
+  const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted)
 
   const [challenge, setChallenge] = useState(null)
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
@@ -48,10 +49,8 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
   const xpToNextLevel = Math.pow((level + 1) * 4, 2)
 
   useEffect(() => {
-    Cookies.set('level', String(level))
-    Cookies.set('xp', String(xp))
-    Cookies.set('challengesCompleted', String(challengesCompleted))
-  }, [level, xp, challengesCompleted])
+    if (level !== rest.level) setIsLevelUpModalOpen(true)
+  }, [level])
 
   function startNewChallenge() {
     const randomChallenge = challenges[Math.floor(Math.random() * challenges.length)]
@@ -74,22 +73,14 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
     }
   }
 
-  function completeChallenge() {
+  async function completeChallenge() {
     if (!challenge) return
 
-    const { amount } = challenge
+    const response = await axios.post('/api/completeChallenge', { challenge })
 
-    let finalXp = xp + amount
-
-    if (finalXp >= xpToNextLevel) {
-      finalXp -= xpToNextLevel
-
-      setLevel(level + 1)
-      setIsLevelUpModalOpen(true)
-    }
-
-    setXp(finalXp)
-    setChallengesCompleted(challengesCompleted + 1)
+    setLevel(response.data.level)
+    setXp(response.data.xp)
+    setChallengesCompleted(response.data.challengesCompleted)
 
     resetChallenge()
   }

@@ -3,6 +3,8 @@ import { GetServerSideProps } from 'next'
 import { getSession } from 'next-auth/client'
 import Head from 'next/head'
 
+import { User } from 'next-auth'
+
 import styles from '../styles/pages/Home.module.css'
 
 import { ChallengesProvider } from '../contexts/ChallengesContext'
@@ -14,15 +16,7 @@ import CompletedChallenges from '../components/CompletedChallenges'
 import Countdown from '../components/Countdown'
 import ChallengeBox from '../components/ChallengeBox'
 
-interface Props {
-  level: number
-  xp: number
-  challengesCompleted: number
-  name: string
-  avatar_url: string
-}
-
-const Home: React.FC<Props> = (props) => {
+const Home: React.FC<User> = (props) => {
   return (
     <ChallengesProvider
       level={props.level}
@@ -39,7 +33,7 @@ const Home: React.FC<Props> = (props) => {
         <CountdownProvider>
           <section>
             <div>
-              <Profile name={props.name} avatar_url={props.avatar_url} />
+              <Profile name={props.name} avatar_url={props.image} />
               <CompletedChallenges />
               <Countdown />
             </div>
@@ -56,18 +50,11 @@ const Home: React.FC<Props> = (props) => {
 
 export default Home
 
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { level, xp, challengesCompleted } = context.req.cookies
+export const getServerSideProps: GetServerSideProps<User> = async (context) => {
   const session = await getSession(context)
 
   if (session) return {
-    props: {
-      level: Number(level),
-      xp: Number(xp),
-      challengesCompleted: Number(challengesCompleted),
-      name: session.user.name,
-      avatar_url: session.user.image 
-    }
+    props: session.user
   }
   else return {
     redirect: {

@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
+import { getDbUser } from '../_lib/database'
+
 export default (req, res) => NextAuth(req, res, {
   providers: [
     Providers.GitHub({
@@ -20,5 +22,19 @@ export default (req, res) => NextAuth(req, res, {
   ],
   pages: {
     signIn: '/login'
+  },
+
+  database: process.env.MONGODB_URI,
+
+  callbacks: {
+    async session(session) {
+      const user = await getDbUser(session.accessToken)
+
+      session.user.xp = user.xp ?? 0
+      session.user.level = user.level ?? 1
+      session.user.challengesCompleted = user.challengesCompleted ?? 0
+
+      return session
+    }
   }
 })
