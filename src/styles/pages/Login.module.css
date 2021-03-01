@@ -77,3 +77,13 @@
 
   transition: background-color .2s;
 }
+
+@media (max-width: 630px) {
+  .container {
+    justify-content: center;
+  }
+
+  .container > div {
+    padding: 1rem;
+  }
+}
