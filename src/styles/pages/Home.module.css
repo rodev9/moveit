@@ -22,7 +22,7 @@
   }
 }
 
-@media (max-width: 690px) {
+@media (max-width: 740px) {
   .container section {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;

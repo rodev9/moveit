@@ -104,12 +104,18 @@
   cursor: not-allowed;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .container > div {
     font-size: 6rem;
   }
 
   .container > span {
     font-size: 3rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .container > div {
+    padding: .2rem;
   }
 }

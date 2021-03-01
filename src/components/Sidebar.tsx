@@ -20,12 +20,12 @@ const Sidebar: React.FC = () => {
 
       <nav>
         <Link href="/">
-          <button disabled={router.pathname === '/'}>
+          <button aria-label="Início" disabled={router.pathname === '/'}>
             <FiHome />
           </button>
         </Link>
 
-        <button onClick={() => signOut()}>
+        <button aria-label="Logout" onClick={() => signOut()}>
           <FiLogOut />
         </button>
       </nav>

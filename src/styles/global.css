@@ -50,10 +50,16 @@ a {
 }
 
 #__next {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  margin-left: calc(48px + 4rem);
+}
+
+@media (max-width: 550px) {
+  #__next {
+    margin-left: 0;
+    margin-top: calc(48px + 4rem);
+  }
 }
 
 #__next > div {
-  height: 100vh;
+  min-height: 100vh;
 }

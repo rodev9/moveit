@@ -1,5 +1,4 @@
 .container {
-  width: 100vw;
   overflow: hidden;
   background: url('/gradient_logo.svg') left center no-repeat var(--blue);
   background-size: 80vh;
