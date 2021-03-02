@@ -6,7 +6,14 @@ import { MdPlayArrow, MdCheckCircle } from 'react-icons/md'
 import { FiX } from 'react-icons/fi'
 
 const Countdown: React.FC = () => {
-  const { timePercent, minutes, seconds, hasFinished, isActive, resetCountdown, startCountdown } = useCountdown()  
+  const {
+    minutes,
+    seconds,
+    hasFinished,
+    isActive,
+    resetCountdown,
+    startCountdown
+  } = useCountdown()  
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
@@ -40,7 +47,6 @@ const Countdown: React.FC = () => {
           className={`${styles.startButton} ${styles.startButtonActive}`}
           onClick={resetCountdown}
         >
-          <span style={{ width: `${timePercent}%` }} />
           Abandonar ciclo <FiX style={{ marginLeft: 5 }} />
         </button>
       ) : (

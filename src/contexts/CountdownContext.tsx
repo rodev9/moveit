@@ -2,7 +2,6 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useChallenge } from './ChallengesContext'
 
 interface CountdownContextData {
-  timePercent: number
   minutes: number
   seconds: number
   hasFinished: boolean
@@ -13,7 +12,7 @@ interface CountdownContextData {
 
 const CountdownContext = createContext({} as CountdownContextData)
 
-const defaultTime = 25 * 60
+const defaultTime = process.env.NODE_ENV === 'development' ? 3 : 25 * 60
 let countdownTimeout: NodeJS.Timeout
 
 export const CountdownProvider: React.FC = ({ children }) => {
@@ -53,7 +52,6 @@ export const CountdownProvider: React.FC = ({ children }) => {
   
   return (
     <CountdownContext.Provider value={{
-      timePercent: (defaultTime - time) / defaultTime * 100,
       minutes,
       seconds,
       hasFinished,

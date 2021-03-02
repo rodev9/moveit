@@ -74,7 +74,8 @@
   border-bottom: 4px solid var(--gray-line);
 }
 
-.startButtonActive span {
+.startButtonActive::before {
+  content: '';
   position: absolute;
   left: 0;
   bottom: -4px;
@@ -85,7 +86,17 @@
   border-radius: 5px;
   border-top-left-radius: 0;
 
-  transition: width 1s linear;
+  animation: time 1500s linear;
+}
+
+@keyframes time {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 .startButtonActive:not(:disabled):hover {
