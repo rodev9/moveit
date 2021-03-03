@@ -7,20 +7,21 @@ export const Container = styled.aside`
   bottom: 0;
 
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
 
   background: linear-gradient(180deg, var(--white) 0%, var(--background) 100%);
   filter: drop-shadow(0px 0px 60px rgba(0, 0, 0, 0.05));
 
   z-index: 1;
 
-  > svg {
+  > a {
     margin: 2rem;
     cursor: pointer;
   }
 
   > button {
-    margin: 2rem 0;
+    margin: 1rem 0;
+    height: calc(42px + 2rem);
   }
 
   nav {
@@ -36,12 +37,18 @@ export const Container = styled.aside`
     bottom: initial;
 
     grid-template-rows: auto;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
 
     filter: drop-shadow(0px 0px 60px rgba(0, 0, 0, 0.25));
 
     nav {
       flex-direction: row;
+    }
+
+    > button {
+      margin: 0 1rem;
+      height: 100%;
+      width: calc(48px + 2rem);
     }
   }
 `

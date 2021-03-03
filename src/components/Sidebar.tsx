@@ -15,7 +15,9 @@ const Sidebar: React.FC = () => {
   return (
     <Container>
       <Link href="/">
-        <Logo />
+        <a>
+          <Logo />
+        </a>
       </Link>
 
       <nav>
