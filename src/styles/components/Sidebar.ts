@@ -70,10 +70,11 @@ export const Button = styled.button`
     font-size: 2rem;
     color: var(--text);
 
-    transition: color .2s;
+    transition: color 0.2s;
   }
 
-  :not(:disabled):hover svg, :focus svg {
+  :not(:disabled):hover svg,
+  :focus svg {
     color: var(--blue-dark);
   }
 
@@ -82,7 +83,7 @@ export const Button = styled.button`
   }
 
   ::before {
-    content: "";
+    content: '';
 
     position: absolute;
     top: calc(50% - 4px);
@@ -95,7 +96,7 @@ export const Button = styled.button`
 
     opacity: 0;
 
-    transition: opacity .2s, height .2s, top .2s;
+    transition: opacity 0.2s, height 0.2s, top 0.2s;
   }
 
   :not(:disabled)::before {
@@ -131,7 +132,7 @@ export const Button = styled.button`
       top: -4px;
       left: calc(50% - 4px);
 
-      transition: opacity .2s, width .2s, left .2s;
+      transition: opacity 0.2s, width 0.2s, left 0.2s;
     }
 
     :not(:disabled):not(:focus):hover::before {

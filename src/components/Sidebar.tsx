@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -28,7 +27,10 @@ const Sidebar: React.FC = () => {
         </Link>
 
         <Link href="/leaderboard">
-          <Button aria-label="Leaderboard" disabled={router.pathname === '/leaderboard'}>
+          <Button
+            aria-label="Leaderboard"
+            disabled={router.pathname === '/leaderboard'}
+          >
             <FiAward />
           </Button>
         </Link>

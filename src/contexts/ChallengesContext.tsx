@@ -41,7 +41,9 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
 }) => {
   const [level, setLevel] = useState(rest.level)
   const [xp, setXp] = useState(rest.xp)
-  const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted)
+  const [challengesCompleted, setChallengesCompleted] = useState(
+    rest.challengesCompleted
+  )
 
   const [challenge, setChallenge] = useState(null)
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
@@ -53,7 +55,8 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
   }, [level])
 
   function startNewChallenge() {
-    const randomChallenge = challenges[Math.floor(Math.random() * challenges.length)]
+    const randomChallenge =
+      challenges[Math.floor(Math.random() * challenges.length)]
 
     setChallenge(randomChallenge)
 
@@ -73,6 +76,12 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
     }
   }
 
+  function resetChallenge() {
+    setChallenge(null)
+
+    scroll({ top: 0, behavior: 'smooth' })
+  }
+
   async function completeChallenge() {
     if (!challenge) return
 
@@ -85,19 +94,13 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
     resetChallenge()
   }
 
-  function resetChallenge() {
-    setChallenge(null)
-
-    scroll({ top: 0, behavior: 'smooth' })
-  }
-
   function closeLevelUpModal() {
     setIsLevelUpModalOpen(false)
   }
 
   return (
     <ChallengesContext.Provider
-     value={{
+      value={{
         level,
         xp,
         xpToNextLevel,
@@ -111,7 +114,7 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
     >
       {children}
 
-      { isLevelUpModalOpen && <LevelUpModal /> }
+      {isLevelUpModalOpen && <LevelUpModal />}
     </ChallengesContext.Provider>
   )
 }

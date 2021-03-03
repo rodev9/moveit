@@ -38,7 +38,7 @@ const ChallengeBox: React.FC = () => {
 
   return (
     <Container id="challenge">
-      { challenge ? (
+      {challenge ? (
         <Active>
           <header>Ganhe {challenge.amount} xp</header>
 
@@ -49,27 +49,23 @@ const ChallengeBox: React.FC = () => {
           </main>
 
           <footer>
-              <BarLoader
-                color="var(--blue)"
-                width="100%"
-                loading={isLoading}
-              />
-              
-              <FailedButton
-                type="button"
-                onClick={handleChallengeFailed}
-                disabled={isLoading}
-              >
-                Falhei :(
-              </FailedButton>
+            <BarLoader color="var(--blue)" width="100%" loading={isLoading} />
 
-              <SucceededButton
-                type="button"
-                onClick={handleChallengeSucceeded}
-                disabled={isLoading}
-              >
-                Consegui! :D
-              </SucceededButton>
+            <FailedButton
+              type="button"
+              onClick={handleChallengeFailed}
+              disabled={isLoading}
+            >
+              Falhei :(
+            </FailedButton>
+
+            <SucceededButton
+              type="button"
+              onClick={handleChallengeSucceeded}
+              disabled={isLoading}
+            >
+              Consegui! :D
+            </SucceededButton>
           </footer>
         </Active>
       ) : (
@@ -81,7 +77,7 @@ const ChallengeBox: React.FC = () => {
             Suba de nível completando desafios.
           </p>
         </NotActive>
-      ) }
+      )}
     </Container>
   )
 }

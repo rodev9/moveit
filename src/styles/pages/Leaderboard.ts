@@ -34,7 +34,7 @@ export const Grid = styled.div`
     background: var(--background);
 
     color: rgba(102, 102, 102, 0.5);
-    font-size: .87rem;
+    font-size: 0.87rem;
     font-weight: 700;
     text-transform: uppercase;
 
@@ -58,7 +58,8 @@ export const Grid = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
 
-    span.header, div.header {
+    span.header,
+    div.header {
       display: none;
     }
   }
@@ -131,11 +132,11 @@ export const Card = styled.div`
     span {
       color: var(--blue);
 
-      margin-right: .3rem;
+      margin-right: 0.3rem;
     }
 
     ::before {
-      font-size: .87rem;
+      font-size: 0.87rem;
       color: rgba(102, 102, 102, 0.5);
 
       font-weight: 700;
@@ -173,7 +174,7 @@ export const Card = styled.div`
     }
 
     section::before {
-      margin: 1rem 0 .5rem;
+      margin: 1rem 0 0.5rem;
     }
   }
 `

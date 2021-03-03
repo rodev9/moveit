@@ -1,15 +1,13 @@
-import { useRouter } from 'next/router'
+import { AppProps } from 'next/dist/next-server/lib/router/router'
 
 import Sidebar from '../components/Sidebar'
 
 import GlobalStyle from '../styles/global'
 
-function MyApp({ Component, pageProps }) {
-  const router = useRouter()
-
+const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return (
     <>
-      { router.pathname !== '/login' && <Sidebar /> }
+      {router.pathname !== '/login' && <Sidebar />}
       <Component {...pageProps} />
       <GlobalStyle sidebarVisible={router.pathname !== '/login'} />
     </>

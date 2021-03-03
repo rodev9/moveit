@@ -25,13 +25,19 @@ const Leaderboard: React.FC<Props> = ({ initialUsers }) => {
       const response = await axios.get(`/api/users?page=${page + 1}&limit=10`)
 
       setPage(page + 1)
-      setUsers([ ...users, ...response.data ])
+      setUsers([...users, ...response.data])
       setLoading(false)
     } catch {}
   }
 
   function onScroll() {
-    if (leaderboardRef.current.scrollHeight - leaderboardRef.current.clientHeight - leaderboardRef.current.scrollTop < 200 && !loading) {
+    if (
+      leaderboardRef.current.scrollHeight -
+        leaderboardRef.current.clientHeight -
+        leaderboardRef.current.scrollTop <
+        200 &&
+      !loading
+    ) {
       loadUsers()
     }
   }
@@ -58,10 +64,12 @@ const Leaderboard: React.FC<Props> = ({ initialUsers }) => {
             <Card>
               <main>
                 <img src={user.image} alt="" />
-                
+
                 <div>
                   <strong>{user.name}</strong>
-                  <span><LevelIcon /> Level {user.level}</span>
+                  <span>
+                    <LevelIcon /> Level {user.level}
+                  </span>
                 </div>
               </main>
 
@@ -83,7 +91,9 @@ const Leaderboard: React.FC<Props> = ({ initialUsers }) => {
 export default Leaderboard
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const response = await axios.get(`${process.env.NEXTAUTH_URL}/api/users?page=0&limit=10`)
+  const response = await axios.get(
+    `${process.env.NEXTAUTH_URL}/api/users?page=0&limit=10`
+  )
 
   return {
     props: {

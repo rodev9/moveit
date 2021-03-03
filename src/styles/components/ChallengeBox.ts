@@ -49,7 +49,8 @@ export const Active = styled.div`
   display: flex;
   flex-direction: column;
 
-  header, main {
+  header,
+  main {
     padding: 1.5rem 2rem;
   }
 
@@ -71,7 +72,7 @@ export const Active = styled.div`
       font-size: 2rem;
       font-weight: 600;
       color: var(--title);
-      margin: 1.5rem 0 1rem
+      margin: 1.5rem 0 1rem;
     }
 
     p {
@@ -110,7 +111,7 @@ const ButtonBase = styled.button`
   font-size: 1rem;
   font-weight: 600;
 
-  transition: background-color .2s, color .2s;
+  transition: background-color 0.2s, color 0.2s;
 
   :hover {
     color: var(--white);
@@ -118,7 +119,7 @@ const ButtonBase = styled.button`
 `
 
 export const FailedButton = styled(ButtonBase)`
-  background: #FFF5F5;
+  background: #fff5f5;
   color: var(--red);
 
   border-right: 1px solid var(--gray-line);
@@ -134,7 +135,7 @@ export const FailedButton = styled(ButtonBase)`
 `
 
 export const SucceededButton = styled(ButtonBase)`
-  background: #F7FFF5;
+  background: #f7fff5;
   color: var(--green);
 
   :hover {

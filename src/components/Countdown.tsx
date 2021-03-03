@@ -1,4 +1,3 @@
-import React from 'react'
 import { useCountdown } from '../contexts/CountdownContext'
 
 import { Container, Button } from '../styles/components/Countdown'
@@ -14,7 +13,7 @@ const Countdown: React.FC = () => {
     isActive,
     resetCountdown,
     startCountdown
-  } = useCountdown()  
+  } = useCountdown()
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
@@ -35,26 +34,20 @@ const Countdown: React.FC = () => {
         </div>
       </Container>
 
-      { hasFinished ? (
+      {hasFinished ? (
         <Button disabled>
-          Ciclo encerrado <MdCheckCircle style={{ marginLeft: 5, color: 'var(--green)' }} />
+          Ciclo encerrado{' '}
+          <MdCheckCircle style={{ marginLeft: 5, color: 'var(--green)' }} />
         </Button>
       ) : isActive ? (
-        <Button
-          type="button"
-          active={defaultTime}
-          onClick={resetCountdown}
-        >
+        <Button type="button" active={defaultTime} onClick={resetCountdown}>
           Abandonar ciclo <FiX style={{ marginLeft: 5 }} />
         </Button>
       ) : (
-        <Button
-          type="button"
-          onClick={startCountdown}
-        >
+        <Button type="button" onClick={startCountdown}>
           Iniciar um ciclo <MdPlayArrow />
         </Button>
-      ) }
+      )}
     </div>
   )
 }

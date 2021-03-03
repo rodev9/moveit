@@ -50,17 +50,19 @@ export const CountdownProvider: React.FC = ({ children }) => {
     setHasFinished(false)
     setTime(defaultTime)
   }
-  
+
   return (
-    <CountdownContext.Provider value={{
-      defaultTime,
-      minutes,
-      seconds,
-      hasFinished,
-      isActive,
-      startCountdown,
-      resetCountdown
-    }}>
+    <CountdownContext.Provider
+      value={{
+        defaultTime,
+        minutes,
+        seconds,
+        hasFinished,
+        isActive,
+        startCountdown,
+        resetCountdown
+      }}
+    >
       {children}
     </CountdownContext.Provider>
   )

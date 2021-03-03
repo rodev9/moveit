@@ -24,10 +24,19 @@ const Login: React.FC = () => {
         <h2>Bem-vindo</h2>
 
         <p>
-          { provider === 'github' ? <ImGithub /> : provider === 'discord' ? <SiDiscord /> : provider === 'gitlab' && <SiGitlab /> }
+          {provider === 'github' ? (
+            <ImGithub />
+          ) : provider === 'discord' ? (
+            <SiDiscord />
+          ) : (
+            provider === 'gitlab' && <SiGitlab />
+          )}
           <span>
             Faça login com seu
-            <select value={provider} onChange={e => setProvider(e.target.value)}>
+            <select
+              value={provider}
+              onChange={e => setProvider(e.target.value)}
+            >
               <option value="github">Github</option>
               <option value="discord">Discord</option>
               <option value="gitlab">GitLab</option>

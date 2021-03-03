@@ -6,7 +6,9 @@ import { connectToDatabase, getUserId } from './_lib/database'
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') return res.status(405).send('Method Not Allowed')
 
-  const { challenge: { amount } } = req.body
+  const {
+    challenge: { amount }
+  } = req.body
   const session = await getSession({ req })
 
   const _id = await getUserId(session.accessToken)
@@ -31,7 +33,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   challengesCompleted += 1
 
-  await users.findOneAndUpdate({ _id }, {$set: { xp, level, challengesCompleted }})
+  await users.findOneAndUpdate(
+    { _id },
+    { $set: { xp, level, challengesCompleted } }
+  )
 
   res.json({ xp, level, challengesCompleted })
 }

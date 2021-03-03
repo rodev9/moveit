@@ -60,14 +60,16 @@ export default createGlobalStyle<{ sidebarVisible: boolean }>`
     text-decoration: none;
   }
 
-  ${props => props.sidebarVisible && css`
-    #__next {
-      margin-left: calc(48px + 4rem);
+  ${props =>
+    props.sidebarVisible &&
+    css`
+      #__next {
+        margin-left: calc(48px + 4rem);
 
-      @media (max-width: 550px) {
-        margin-left: 0;
-        margin-top: calc(48px + 4rem);
+        @media (max-width: 550px) {
+          margin-left: 0;
+          margin-top: calc(48px + 4rem);
+        }
       }
-    }
-  `}
+    `}
 `

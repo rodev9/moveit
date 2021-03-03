@@ -24,7 +24,7 @@ export const Container = styled.header`
       border-radius: 4px;
       background: var(--green);
 
-      transition: width .4s;
+      transition: width 0.4s;
     }
   }
 `
@@ -34,5 +34,5 @@ export const CurrentXp = styled.span`
   top: 12px;
   transform: translateX(-50%);
 
-  transition: left .4s;
+  transition: left 0.4s;
 `

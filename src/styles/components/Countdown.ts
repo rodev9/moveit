@@ -35,7 +35,7 @@ export const Container = styled.div`
     }
 
     @media (max-width: 330px) {
-      padding: .2rem;
+      padding: 0.2rem;
     }
 
     @media (max-width: 420px) {
@@ -50,6 +50,16 @@ export const Container = styled.div`
     @media (max-width: 420px) {
       font-size: 3rem;
     }
+  }
+`
+
+const TimeAnimation = keyframes`
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
   }
 `
 
@@ -72,42 +82,44 @@ export const Button = styled.button<{ active?: number }>`
   font-size: 1.25rem;
   font-weight: 600;
 
-  transition: background-color .2s, color .2s, border .2s;
+  transition: background-color 0.2s, color 0.2s, border 0.2s;
 
   &:not(:disabled):hover {
     background: var(--blue-dark);
   }
 
-  ${props => props.active && css<typeof props>`
-    position: relative;
-    
-    background: var(--white);
-    color: var(--title);
+  ${props =>
+    props.active &&
+    css<typeof props>`
+      position: relative;
 
-    border-bottom: 4px solid var(--gray-line);
+      background: var(--white);
+      color: var(--title);
 
-    ::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
+      border-bottom: 4px solid var(--gray-line);
 
-      height: 4px;
-      background: var(--green);
+      ::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
 
-      border-radius: 5px;
-      border-top-left-radius: 0;
+        height: 4px;
+        background: var(--green);
 
-      animation: ${TimeAnimation} ${props => props.active}s linear;
-    }
+        border-radius: 5px;
+        border-top-left-radius: 0;
 
-    :not(:disabled):hover {
-      background: var(--red);
-      color: var(--white);
+        animation: ${TimeAnimation} ${props => props.active}s linear;
+      }
 
-      border-bottom: 4px solid transparent;
-    }
-  `}
+      :not(:disabled):hover {
+        background: var(--red);
+        color: var(--white);
+
+        border-bottom: 4px solid transparent;
+      }
+    `}
 
   :disabled {
     background: var(--white);
@@ -115,15 +127,5 @@ export const Button = styled.button<{ active?: number }>`
     border-bottom: 4px solid var(--green);
 
     cursor: not-allowed;
-  }
-`
-
-const TimeAnimation = keyframes`
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 100%;
   }
 `

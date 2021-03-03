@@ -1,4 +1,3 @@
-import React from 'react'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { getSession } from 'next-auth/client'
@@ -16,7 +15,7 @@ import CompletedChallenges from '../components/CompletedChallenges'
 import Countdown from '../components/Countdown'
 import ChallengeBox from '../components/ChallengeBox'
 
-const Home: React.FC<User> = (props) => {
+const Home: React.FC<User> = props => {
   return (
     <ChallengesProvider
       level={props.level}
@@ -50,16 +49,18 @@ const Home: React.FC<User> = (props) => {
 
 export default Home
 
-export const getServerSideProps: GetServerSideProps<User> = async (context) => {
+export const getServerSideProps: GetServerSideProps<User> = async context => {
   const session = await getSession(context)
 
-  if (session) return {
-    props: session.user
-  }
-  else return {
-    redirect: {
-      destination: '/login',
-      permanent: false
+  if (session)
+    return {
+      props: session.user
     }
-  }
+  else
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false
+      }
+    }
 }

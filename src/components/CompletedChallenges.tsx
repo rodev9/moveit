@@ -1,4 +1,3 @@
-import React from 'react'
 import { useChallenge } from '../contexts/ChallengesContext'
 
 import { Container } from '../styles/components/CompletedChallenges'

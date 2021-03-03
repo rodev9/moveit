@@ -80,7 +80,7 @@ export const Form = styled.div`
 
     border: 0;
 
-    transition: background-color .2s;
+    transition: background-color 0.2s;
   }
 
   @media (max-width: 630px) {
