@@ -8,7 +8,13 @@ import LevelUpIcon from '../assets/level-up.svg'
 import EyeIcon from '../assets/eye.svg'
 import BodyIcon from '../assets/body.svg'
 
-import styles from '../styles/components/ChallengeBox.module.css'
+import {
+  Container,
+  NotActive,
+  Active,
+  FailedButton,
+  SucceededButton
+} from '../styles/components/ChallengeBox'
 
 const ChallengeBox: React.FC = () => {
   const { challenge, completeChallenge, resetChallenge } = useChallenge()
@@ -31,9 +37,9 @@ const ChallengeBox: React.FC = () => {
   }
 
   return (
-    <div className={styles.container} id="challenge">
+    <Container id="challenge">
       { challenge ? (
-        <div className={styles.active}>
+        <Active>
           <header>Ganhe {challenge.amount} xp</header>
 
           <main>
@@ -49,36 +55,34 @@ const ChallengeBox: React.FC = () => {
                 loading={isLoading}
               />
               
-              <button
+              <FailedButton
                 type="button"
-                className={styles.failedButton}
                 onClick={handleChallengeFailed}
                 disabled={isLoading}
               >
                 Falhei :(
-              </button>
+              </FailedButton>
 
-              <button
+              <SucceededButton
                 type="button"
-                className={styles.succeededButton}
                 onClick={handleChallengeSucceeded}
                 disabled={isLoading}
               >
                 Consegui! :D
-              </button>
+              </SucceededButton>
           </footer>
-        </div>
+        </Active>
       ) : (
-        <div className={styles.notActive}>
+        <NotActive>
           <strong>Finalize um ciclo para receber um desafio</strong>
 
           <p>
             <LevelUpIcon />
             Suba de nível completando desafios.
           </p>
-        </div>
+        </NotActive>
       ) }
-    </div>
+    </Container>
   )
 }
 

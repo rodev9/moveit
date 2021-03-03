@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useChallenge } from './ChallengesContext'
 
 interface CountdownContextData {
+  defaultTime: number
   minutes: number
   seconds: number
   hasFinished: boolean
@@ -52,6 +53,7 @@ export const CountdownProvider: React.FC = ({ children }) => {
   
   return (
     <CountdownContext.Provider value={{
+      defaultTime,
       minutes,
       seconds,
       hasFinished,

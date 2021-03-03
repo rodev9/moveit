@@ -1,9 +1,8 @@
-import React from 'react'
 import { useChallenge } from '../contexts/ChallengesContext'
 
 import LevelIcon from '../assets/level.svg'
 
-import styles from '../styles/components/Profile.module.css'
+import { Container } from '../styles/components/Profile'
 
 interface Props {
   name: string
@@ -14,7 +13,7 @@ const Profile: React.FC<Props> = ({ name, avatar_url }) => {
   const { level } = useChallenge()
 
   return (
-    <div className={styles.container}>
+    <Container>
       <img src={avatar_url} alt="" />
 
       <div>
@@ -24,7 +23,7 @@ const Profile: React.FC<Props> = ({ name, avatar_url }) => {
           Level {level}
         </p>
       </div>
-    </div>
+    </Container>
   )
 }
 

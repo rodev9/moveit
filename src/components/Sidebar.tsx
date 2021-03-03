@@ -6,30 +6,31 @@ import { signOut } from 'next-auth/client'
 
 import Logo from '../assets/logo.svg'
 
-import styles from '../styles/components/Sidebar.module.css'
+import { Container, Button } from '../styles/components/Sidebar'
 import { FiHome, FiAward, FiLogOut } from 'react-icons/fi'
 
 const Sidebar: React.FC = () => {
   const router = useRouter()
 
   return (
-    <aside className={styles.container}>
+    <Container>
       <Link href="/">
         <Logo />
       </Link>
 
       <nav>
         <Link href="/">
-          <button aria-label="Início" disabled={router.pathname === '/'}>
+          <Button aria-label="Início" disabled={router.pathname === '/'}>
             <FiHome />
-          </button>
+          </Button>
         </Link>
 
-        <button aria-label="Logout" onClick={() => signOut()}>
-          <FiLogOut />
-        </button>
       </nav>
-    </aside>
+
+      <Button aria-label="Logout" onClick={() => signOut()}>
+        <FiLogOut />
+      </Button>
+    </Container>
   )
 }
 

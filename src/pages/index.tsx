@@ -1,11 +1,11 @@
 import React from 'react'
+import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { getSession } from 'next-auth/client'
-import Head from 'next/head'
 
 import { User } from 'next-auth'
 
-import styles from '../styles/pages/Home.module.css'
+import { Container } from '../styles/pages/Home'
 
 import { ChallengesProvider } from '../contexts/ChallengesContext'
 import { CountdownProvider } from '../contexts/CountdownContext'
@@ -23,7 +23,7 @@ const Home: React.FC<User> = (props) => {
       xp={props.xp}
       challengesCompleted={props.challengesCompleted}
     >
-      <div className={styles.container}>
+      <Container>
         <Head>
           <title>Move.it</title>
         </Head>
@@ -43,7 +43,7 @@ const Home: React.FC<User> = (props) => {
             </div>
           </section>
         </CountdownProvider>
-      </div>
+      </Container>
     </ChallengesProvider>
   )
 }

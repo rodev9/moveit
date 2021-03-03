@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/client'
 
 import LogoFull from '../assets/logo-full.svg'
 
-import styles from '../styles/pages/Login.module.css'
+import { Container, Form } from '../styles/pages/Login'
 import { ImGithub, ImArrowRight2 } from 'react-icons/im'
 import { SiDiscord, SiGitlab } from 'react-icons/si'
 
@@ -13,12 +13,12 @@ const Login: React.FC = () => {
   const [provider, setProvider] = useState('github')
 
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <title>Login | Move.it</title>
       </Head>
 
-      <div>
+      <Form>
         <LogoFull />
 
         <h2>Bem-vindo</h2>
@@ -39,8 +39,8 @@ const Login: React.FC = () => {
         <button onClick={() => signIn(provider, { callbackUrl: '/' })}>
           <ImArrowRight2 />
         </button>
-      </div>
-    </div>
+      </Form>
+    </Container>
   )
 }
 

@@ -1,6 +1,6 @@
 import { useChallenge } from '../contexts/ChallengesContext'
 
-import styles from '../styles/components/ExperienceBar.module.css'
+import { Container, CurrentXp } from '../styles/components/ExperienceBar'
 
 const ExperienceBar: React.FC = () => {
   const { xp, xpToNextLevel } = useChallenge()
@@ -8,17 +8,17 @@ const ExperienceBar: React.FC = () => {
   const levelPercent = (xp * 100) / xpToNextLevel
 
   return (
-    <header className={styles.experienceBar}>
+    <Container>
       <span>0 xp</span>
       <div>
         <div style={{ width: `${levelPercent}%` }} />
 
-        <span className={styles.currentXp} style={{ left: `${levelPercent}%` }}>
+        <CurrentXp style={{ left: `${levelPercent}%` }}>
           {xp} xp
-        </span>
+        </CurrentXp>
       </div>
       <span>{xpToNextLevel} xp</span>
-    </header>
+    </Container>
   )
 }
 
