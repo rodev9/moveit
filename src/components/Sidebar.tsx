@@ -27,6 +27,11 @@ const Sidebar: React.FC = () => {
           </Button>
         </Link>
 
+        <Link href="/leaderboard">
+          <Button aria-label="Leaderboard" disabled={router.pathname === '/leaderboard'}>
+            <FiAward />
+          </Button>
+        </Link>
       </nav>
 
       <Button aria-label="Logout" onClick={() => signOut()}>
