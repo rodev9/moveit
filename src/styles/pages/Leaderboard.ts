@@ -25,8 +25,8 @@ export const Grid = styled.div`
 
   gap: 8px 4px;
 
-  height: calc(100% - 5rem);
-  overflow-y: scroll;
+  max-height: calc(100% - 5rem);
+  overflow-y: auto;
 
   .header {
     position: sticky;
