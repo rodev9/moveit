@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.aside`
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  bottom: 0;
+  height: 100vh;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -31,10 +30,8 @@ export const Container = styled.aside`
   }
 
   @media (max-width: 550px) {
-    top: 0;
-    left: 0;
     right: 0;
-    bottom: initial;
+    height: auto;
 
     grid-template-rows: auto;
     grid-template-columns: auto 1fr auto;

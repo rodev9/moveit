@@ -52,15 +52,23 @@ export default createGlobalStyle<{ sidebarVisible: boolean }>`
     text-decoration: none;
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
   ${props =>
     props.sidebarVisible &&
     css`
       #__next {
-        margin-left: calc(48px + 4rem);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: '. .' '. footer';
 
         @media (max-width: 550px) {
-          margin-left: 0;
-          margin-top: calc(48px + 4rem);
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr auto;
+          grid-template-areas: '.' '.' 'footer';
         }
       }
     `}
