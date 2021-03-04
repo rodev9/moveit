@@ -17,13 +17,13 @@ export const Container = styled.div`
     align-content: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 795px) {
     section {
       gap: 3.25rem;
     }
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 750px) {
     section {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr;

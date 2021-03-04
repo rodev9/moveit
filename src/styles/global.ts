@@ -34,14 +34,6 @@ export default createGlobalStyle<{ sidebarVisible: boolean }>`
     }
   }
 
-  html, body, #__next {
-    height: 100%;
-  }
-
-  #__next > div {
-    min-height: 100%;
-  }
-
   body {
     background: var(--background);
     color: var(--text);
