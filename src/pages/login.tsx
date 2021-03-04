@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import { signIn } from 'next-auth/client'
 
@@ -10,6 +11,7 @@ import { ImGithub, ImArrowRight2 } from 'react-icons/im'
 import { SiDiscord, SiGitlab } from 'react-icons/si'
 
 const Login: React.FC = () => {
+  const { query } = useRouter()
   const [provider, setProvider] = useState('github')
 
   return (
@@ -45,7 +47,13 @@ const Login: React.FC = () => {
           </span>
         </p>
 
-        <button onClick={() => signIn(provider, { callbackUrl: '/' })}>
+        <button
+          onClick={() =>
+            signIn(provider, {
+              callbackUrl: query.callbackUrl?.toString() || '/'
+            })
+          }
+        >
           <ImArrowRight2 />
         </button>
       </Form>

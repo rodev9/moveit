@@ -36,7 +36,12 @@ const Sidebar: React.FC = () => {
         </Link>
       </nav>
 
-      <Button aria-label="Logout" onClick={() => signOut()}>
+      <Button
+        aria-label="Logout"
+        onClick={() =>
+          signOut({ callbackUrl: `/login?callbackUrl=${router.pathname}` })
+        }
+      >
         <FiLogOut />
       </Button>
     </Container>

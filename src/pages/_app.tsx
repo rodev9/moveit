@@ -7,7 +7,9 @@ import GlobalStyle from '../styles/global'
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return (
     <>
-      {router.pathname !== '/login' && <Sidebar />}
+      {router.pathname !== '/login' && router.pathname !== '/welcome' && (
+        <Sidebar />
+      )}
       <Component {...pageProps} />
       <GlobalStyle sidebarVisible={router.pathname !== '/login'} />
     </>

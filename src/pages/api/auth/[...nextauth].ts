@@ -22,7 +22,8 @@ export default (req, res) =>
       })
     ],
     pages: {
-      signIn: '/login'
+      signIn: '/login',
+      newUser: '/welcome'
     },
 
     database: process.env.MONGODB_URI,
@@ -36,6 +37,10 @@ export default (req, res) =>
         session.user.challengesCompleted = user.challengesCompleted ?? 0
 
         return session
+      },
+
+      async redirect(url, baseUrl) {
+        return url.startsWith(baseUrl) ? url : baseUrl + url
       }
     }
   })
