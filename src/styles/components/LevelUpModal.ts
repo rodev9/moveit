@@ -20,11 +20,17 @@ export const Container = styled.div`
   background: var(--white);
   width: 100%;
   max-width: 400px;
-  padding: 2rem 3rem;
+  padding-top: 2rem;
   border-radius: 5px;
   box-shadow: 0 0 60 rgba(0, 0, 0, 0.05);
   text-align: center;
   position: relative;
+
+  header,
+  strong,
+  p {
+    margin: 0 3rem;
+  }
 
   header {
     font-size: 8.75rem;
@@ -42,22 +48,51 @@ export const Container = styled.div`
   p {
     font-size: 1.25rem;
     margin-top: 0.25rem;
+    margin-bottom: 2rem;
+  }
+`
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  padding: 0.6rem;
+
+  background: 0;
+  border: 0;
+
+  font-size: 0;
+
+  svg {
+    font-size: 1rem;
+  }
+`
+
+export const ShareButton = styled.button`
+  width: 100%;
+  padding: 1.75rem;
+
+  font-size: 1.25rem;
+
+  border: 0;
+  border-top: 1px solid var(--gray-line);
+  border-radius: 0 0 5px 5px;
+  background: #f5fcff;
+  color: var(--blue-twitter);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s, color 0.2s;
+
+  :hover {
+    background: var(--blue-twitter);
+    color: var(--white);
   }
 
-  button {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-
-    padding: 0.6rem;
-
-    background: 0;
-    border: 0;
-
-    font-size: 0;
-
-    svg {
-      font-size: 1rem;
-    }
+  svg {
+    margin-left: 0.75rem;
   }
 `

@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
-import { getDbUser } from '../_lib/database'
+import { getDbUser } from '../../../services/db'
 
 export default (req, res) =>
   NextAuth(req, res, {

@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import { getSession } from 'next-auth/client'
-import { connectToDatabase, getUserId } from './_lib/database'
+import { connectToDatabase, getUserId } from '../../services/db'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') return res.status(405).send('Method Not Allowed')

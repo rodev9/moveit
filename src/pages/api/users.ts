@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { connectToDatabase } from './_lib/database'
+import { connectToDatabase } from '../../services/db'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { max, page } = req.query
