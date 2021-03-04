@@ -9,6 +9,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: flex-end;
 
+  min-height: 100vh;
+
   @media (max-width: 630px) {
     justify-content: center;
   }
