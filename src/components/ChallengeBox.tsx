@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useChallenge } from '../contexts/ChallengesContext'
 import { useCountdown } from '../contexts/CountdownContext'
 
+import { useTheme } from 'styled-components'
+
 import BarLoader from 'react-spinners/BarLoader'
 
 import LevelUpIcon from '../assets/level-up.svg'
@@ -17,6 +19,7 @@ import {
 } from '../styles/components/ChallengeBox'
 
 const ChallengeBox: React.FC = () => {
+  const { colors } = useTheme()
   const { challenge, completeChallenge, resetChallenge } = useChallenge()
   const { resetCountdown } = useCountdown()
 
@@ -49,7 +52,11 @@ const ChallengeBox: React.FC = () => {
           </main>
 
           <footer>
-            <BarLoader color="var(--blue)" width="100%" loading={isLoading} />
+            <BarLoader
+              color={colors.primary}
+              width="100%"
+              loading={isLoading}
+            />
 
             <FailedButton
               type="button"

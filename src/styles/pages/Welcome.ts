@@ -6,8 +6,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: var(--blue-dark2);
-  color: var(--white);
+  background: ${props => props.theme.colors.primaryDark2};
+  color: ${props => props.theme.colors.white};
   text-align: center;
 
   height: 100vh;
@@ -22,7 +22,7 @@ export const Container = styled.div`
 
       border: 0;
       color: inherit;
-      background: var(--blue);
+      background: ${props => props.theme.colors.primary};
       border-radius: 5px;
       padding: 1rem;
     }

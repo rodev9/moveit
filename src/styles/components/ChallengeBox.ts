@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   height: 100%;
 
-  background: var(--white);
+  background: ${props => props.theme.colors.white};
   border-radius: 5px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 
@@ -55,10 +55,10 @@ export const Active = styled.div`
   }
 
   header {
-    color: var(--blue);
+    color: ${props => props.theme.colors.primary};
     font-weight: 600;
     font-size: 1.25rem;
-    border-bottom: 1px solid var(--gray-line);
+    border-bottom: 1px solid ${props => props.theme.colors.grayLine};
   }
 
   main {
@@ -71,7 +71,7 @@ export const Active = styled.div`
     strong {
       font-size: 2rem;
       font-weight: 600;
-      color: var(--title);
+      color: ${props => props.theme.colors.title};
       margin: 1.5rem 0 1rem;
     }
 
@@ -85,7 +85,7 @@ export const Active = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    border-top: 1px solid var(--gray-line);
+    border-top: 1px solid ${props => props.theme.colors.grayLine};
 
     > span {
       position: absolute;
@@ -114,31 +114,31 @@ const ButtonBase = styled.button`
   transition: background-color 0.2s, color 0.2s;
 
   :hover {
-    color: var(--white);
+    color: ${props => props.theme.colors.white};
   }
 `
 
 export const FailedButton = styled(ButtonBase)`
   background: #fff5f5;
-  color: var(--red);
+  color: ${props => props.theme.colors.red};
 
-  border-right: 1px solid var(--gray-line);
+  border-right: 1px solid ${props => props.theme.colors.grayLine};
 
   :hover {
-    background: var(--red);
+    background: ${props => props.theme.colors.red};
   }
 
   @media (max-width: 710px) {
     border-right: 0;
-    border-bottom: 1px solid var(--gray-line);
+    border-bottom: 1px solid ${props => props.theme.colors.grayLine};
   }
 `
 
 export const SucceededButton = styled(ButtonBase)`
   background: #f7fff5;
-  color: var(--green);
+  color: ${props => props.theme.colors.green};
 
   :hover {
-    background: var(--green);
+    background: ${props => props.theme.colors.green};
   }
 `

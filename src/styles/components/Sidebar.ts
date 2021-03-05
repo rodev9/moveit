@@ -8,7 +8,11 @@ export const Container = styled.aside`
   display: grid;
   grid-template-rows: auto 1fr auto;
 
-  background: linear-gradient(180deg, var(--white) 0%, var(--background) 100%);
+  background: linear-gradient(
+    180deg,
+    ${props => props.theme.colors.white} 0%,
+    ${props => props.theme.colors.background} 100%
+  );
   filter: drop-shadow(0px 0px 60px rgba(0, 0, 0, 0.05));
 
   z-index: 1;
@@ -65,18 +69,18 @@ export const Button = styled.button`
 
   svg {
     font-size: 2rem;
-    color: var(--text);
+    color: ${props => props.theme.colors.text};
 
     transition: color 0.2s;
   }
 
   :not(:disabled):hover svg,
   :focus svg {
-    color: var(--blue-dark);
+    color: ${props => props.theme.colors.primaryDark};
   }
 
   :disabled svg {
-    color: var(--blue);
+    color: ${props => props.theme.colors.primary};
   }
 
   ::before {
@@ -89,7 +93,7 @@ export const Button = styled.button`
     width: 8px;
     height: 8px;
     border-radius: 16px;
-    background-color: var(--blue);
+    background-color: ${props => props.theme.colors.primary};
 
     opacity: 0;
 
@@ -97,7 +101,7 @@ export const Button = styled.button`
   }
 
   :not(:disabled)::before {
-    background-color: var(--blue-dark);
+    background-color: ${props => props.theme.colors.primaryDark};
   }
 
   :not(:disabled):not(:focus):hover::before {

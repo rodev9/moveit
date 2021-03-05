@@ -1,10 +1,13 @@
 import { useCountdown } from '../contexts/CountdownContext'
 
+import { useTheme } from 'styled-components'
+
 import { Container, Button } from '../styles/components/Countdown'
 import { MdPlayArrow, MdCheckCircle } from 'react-icons/md'
 import { FiX } from 'react-icons/fi'
 
 const Countdown: React.FC = () => {
+  const { colors } = useTheme()
   const {
     defaultTime,
     minutes,
@@ -37,7 +40,7 @@ const Countdown: React.FC = () => {
       {hasFinished ? (
         <Button disabled>
           Ciclo encerrado{' '}
-          <MdCheckCircle style={{ marginLeft: 5, color: 'var(--green)' }} />
+          <MdCheckCircle style={{ marginLeft: 5, color: colors.green }} />
         </Button>
       ) : isActive ? (
         <Button type="button" active={defaultTime} onClick={resetCountdown}>

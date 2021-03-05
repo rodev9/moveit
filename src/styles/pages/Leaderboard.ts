@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0 11rem;
 
   h1 {
-    color: var(--title);
+    color: ${props => props.theme.colors.title};
     margin-bottom: 2.5rem;
   }
 
@@ -31,7 +31,7 @@ export const Grid = styled.div`
   .header {
     position: sticky;
     top: 0;
-    background: var(--background);
+    background: ${props => props.theme.colors.background};
 
     color: rgba(102, 102, 102, 0.5);
     font-size: 0.87rem;
@@ -76,7 +76,7 @@ export const CardNumber = styled.span`
   font-size: 1.5rem;
   font-weight: 500;
 
-  background: var(--white);
+  background: ${props => props.theme.colors.white};
 
   @media (max-width: 835px) {
     width: 100%;
@@ -93,7 +93,7 @@ export const Card = styled.div`
   padding: 1rem 1.5rem;
   border-radius: 0 5px 5px 0;
 
-  background: var(--white);
+  background: ${props => props.theme.colors.white};
 
   main {
     display: flex;
@@ -112,7 +112,7 @@ export const Card = styled.div`
     }
 
     strong {
-      color: var(--title);
+      color: ${props => props.theme.colors.title};
       font-size: 1.25rem;
     }
 
@@ -130,7 +130,7 @@ export const Card = styled.div`
     text-align: center;
 
     span {
-      color: var(--blue);
+      color: ${props => props.theme.colors.primary};
 
       margin-right: 0.3rem;
     }

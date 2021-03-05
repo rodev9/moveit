@@ -9,12 +9,12 @@ export const Container = styled.footer`
   justify-content: center;
 
   padding: 3rem;
-  background: var(--blue);
-  color: var(--white);
+  background: ${props => props.theme.colors.primary};
+  color: #fff;
 
   text-align: center;
 
   svg {
-    color: var(--white);
+    color: #fff;
   }
 `

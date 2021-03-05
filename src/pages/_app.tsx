@@ -1,4 +1,7 @@
-import { AppProps } from 'next/dist/next-server/lib/router/router'
+import { AppProps } from 'next/app'
+import { ThemeProvider } from 'styled-components'
+
+import light from '../styles/themes/light'
 
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
@@ -7,7 +10,7 @@ import GlobalStyle from '../styles/global'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return (
-    <>
+    <ThemeProvider theme={light}>
       {router.pathname !== '/login' && router.pathname !== '/welcome' && (
         <Sidebar />
       )}
@@ -21,7 +24,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
           router.pathname !== '/login' && router.pathname !== '/welcome'
         }
       />
-    </>
+    </ThemeProvider>
   )
 }
 

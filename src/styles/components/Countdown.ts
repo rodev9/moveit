@@ -5,7 +5,7 @@ export const Container = styled.div`
   align-items: center;
   font-family: 'Rajdhani';
   font-weight: 600;
-  color: var(--title);
+  color: ${props => props.theme.colors.title};
 
   > div {
     flex: 1;
@@ -14,7 +14,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-evenly;
 
-    background: var(--white);
+    background: ${props => props.theme.colors.white};
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     font-size: 8.5rem;
@@ -76,8 +76,8 @@ export const Button = styled.button<{ active?: number }>`
   border: 0;
   border-radius: 5px;
 
-  background: var(--blue);
-  color: var(--white);
+  background: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.white};
 
   font-size: 1.25rem;
   font-weight: 600;
@@ -85,7 +85,7 @@ export const Button = styled.button<{ active?: number }>`
   transition: background-color 0.2s, color 0.2s, border 0.2s;
 
   &:not(:disabled):hover {
-    background: var(--blue-dark);
+    background: ${props => props.theme.colors.primaryDark};
   }
 
   ${props =>
@@ -93,10 +93,10 @@ export const Button = styled.button<{ active?: number }>`
     css<typeof props>`
       position: relative;
 
-      background: var(--white);
-      color: var(--title);
+      background: ${props => props.theme.colors.white};
+      color: ${props => props.theme.colors.title};
 
-      border-bottom: 4px solid var(--gray-line);
+      border-bottom: 4px solid ${props => props.theme.colors.grayLine};
 
       ::before {
         content: '';
@@ -105,7 +105,7 @@ export const Button = styled.button<{ active?: number }>`
         bottom: -4px;
 
         height: 4px;
-        background: var(--green);
+        background: ${props => props.theme.colors.green};
 
         border-radius: 5px;
         border-top-left-radius: 0;
@@ -114,17 +114,17 @@ export const Button = styled.button<{ active?: number }>`
       }
 
       :not(:disabled):hover {
-        background: var(--red);
-        color: var(--white);
+        background: ${props => props.theme.colors.red};
+        color: ${props => props.theme.colors.white};
 
         border-bottom: 4px solid transparent;
       }
     `}
 
   :disabled {
-    background: var(--white);
-    color: var(--text);
-    border-bottom: 4px solid var(--green);
+    background: ${props => props.theme.colors.white};
+    color: ${props => props.theme.colors.text};
+    border-bottom: 4px solid ${props => props.theme.colors.green};
 
     cursor: not-allowed;
   }

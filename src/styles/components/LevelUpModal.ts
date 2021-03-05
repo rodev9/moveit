@@ -17,7 +17,7 @@ export const Overlay = styled.div`
 `
 
 export const Container = styled.div`
-  background: var(--white);
+  background: ${props => props.theme.colors.white};
   width: 100%;
   max-width: 400px;
   padding-top: 2rem;
@@ -35,14 +35,14 @@ export const Container = styled.div`
   header {
     font-size: 8.75rem;
     font-weight: 600;
-    color: var(--blue);
+    color: ${props => props.theme.colors.primary};
     background: url('/levelup.svg') no-repeat center;
     background-size: contain;
   }
 
   strong {
     font-size: 2.25rem;
-    color: var(--title);
+    color: ${props => props.theme.colors.title};
   }
 
   p {
@@ -76,10 +76,10 @@ export const ShareButton = styled.button`
   font-size: 1.25rem;
 
   border: 0;
-  border-top: 1px solid var(--gray-line);
+  border-top: 1px solid ${props => props.theme.colors.grayLine};
   border-radius: 0 0 5px 5px;
   background: #f5fcff;
-  color: var(--blue-twitter);
+  color: ${props => props.theme.colors.twitter};
 
   display: flex;
   align-items: center;
@@ -88,8 +88,8 @@ export const ShareButton = styled.button`
   transition: background-color 0.2s, color 0.2s;
 
   :hover {
-    background: var(--blue-twitter);
-    color: var(--white);
+    background: ${props => props.theme.colors.twitter};
+    color: ${props => props.theme.colors.white};
   }
 
   svg {
