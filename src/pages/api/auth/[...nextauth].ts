@@ -26,7 +26,7 @@ export default (req, res) =>
       newUser: '/welcome'
     },
 
-    database: process.env.MONGODB_URI,
+    database: process.env.NEXTAUTH_MONGODB_URI,
 
     callbacks: {
       async session(session) {
