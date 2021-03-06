@@ -83,7 +83,10 @@ export const Form = styled.div`
 
     border: 0;
 
-    transition: background-color 0.2s;
+    :disabled {
+      cursor: not-allowed;
+      background: ${props => props.theme.colors.red};
+    }
   }
 
   @media (max-width: 630px) {

@@ -85,11 +85,13 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
   async function completeChallenge() {
     if (!challenge) return
 
-    const response = await axios.post('/api/completeChallenge', { challenge })
+    if (navigator.onLine) {
+      const response = await axios.post('/api/completeChallenge', { challenge })
 
-    setXp(response.data.xp)
-    setChallengesCompleted(response.data.challengesCompleted)
-    setLevel(response.data.level)
+      setXp(response.data.xp)
+      setChallengesCompleted(response.data.challengesCompleted)
+      setLevel(response.data.level)
+    }
 
     resetChallenge()
   }

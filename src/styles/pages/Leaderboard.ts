@@ -8,6 +8,10 @@ export const Container = styled.div`
   h1 {
     color: ${props => props.theme.colors.title};
     margin-bottom: 2.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   @media (max-width: 1237px) {
@@ -177,4 +181,9 @@ export const Card = styled.div`
       margin: 1rem 0 0.5rem;
     }
   }
+`
+
+export const Error = styled.div`
+  font-size: 1rem;
+  color: ${props => props.theme.colors.red};
 `

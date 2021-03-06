@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useChallenge } from '../contexts/ChallengesContext'
 import { useCountdown } from '../contexts/CountdownContext'
 
@@ -15,8 +15,10 @@ import {
   NotActive,
   Active,
   FailedButton,
-  SucceededButton
+  SucceededButton,
+  Error
 } from '../styles/components/ChallengeBox'
+import { RiSignalWifiOffFill } from 'react-icons/ri'
 
 const ChallengeBox: React.FC = () => {
   const { colors } = useTheme()
@@ -24,6 +26,18 @@ const ChallengeBox: React.FC = () => {
   const { resetCountdown } = useCountdown()
 
   const [isLoading, setIsLoading] = useState(false)
+  const [isOnline, setIsOnline] = useState(true)
+
+  useEffect(() => {
+    function updateIsOnline() {
+      setIsOnline(navigator.onLine)
+    }
+
+    updateIsOnline()
+
+    window.addEventListener('online', updateIsOnline)
+    window.addEventListener('offline', updateIsOnline)
+  }, [])
 
   async function handleChallengeSucceeded() {
     setIsLoading(true)
@@ -41,6 +55,15 @@ const ChallengeBox: React.FC = () => {
 
   return (
     <Container id="challenge">
+      {!isOnline && (
+        <Error>
+          <h2>
+            <RiSignalWifiOffFill /> Sem conexão com a internet!
+          </h2>
+          <p>O progresso não será salvo!</p>
+        </Error>
+      )}
+
       {challenge ? (
         <Active>
           <header>Ganhe {challenge.amount} xp</header>

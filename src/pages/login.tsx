@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
@@ -13,6 +13,18 @@ import { SiDiscord, SiGitlab } from 'react-icons/si'
 const Login: React.FC = () => {
   const { query } = useRouter()
   const [provider, setProvider] = useState('github')
+  const [isOnline, setIsOnline] = useState(true)
+
+  useEffect(() => {
+    function updateIsOnline() {
+      setIsOnline(navigator.onLine)
+    }
+
+    updateIsOnline()
+
+    window.addEventListener('online', updateIsOnline)
+    window.addEventListener('offline', updateIsOnline)
+  }, [])
 
   return (
     <Container>
@@ -48,6 +60,7 @@ const Login: React.FC = () => {
         </p>
 
         <button
+          disabled={!isOnline}
           onClick={() =>
             signIn(provider, {
               callbackUrl: query.callbackUrl?.toString() || '/'

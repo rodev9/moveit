@@ -142,3 +142,13 @@ export const SucceededButton = styled(ButtonBase)`
     background: ${props => props.theme.colors.green};
   }
 `
+
+export const Error = styled.div`
+  background: ${props => props.theme.colors.red};
+  color: ${props => props.theme.colors.white};
+
+  border-radius: 5px;
+  padding: 2rem 1rem;
+  width: calc(100% - 2.5rem);
+  margin-top: 1.25rem;
+`
