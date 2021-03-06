@@ -182,8 +182,3 @@ export const Card = styled.div`
     }
   }
 `
-
-export const Error = styled.div`
-  font-size: 1rem;
-  color: ${props => props.theme.colors.red};
-`

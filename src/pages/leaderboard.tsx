@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 
@@ -6,14 +6,7 @@ import axios from 'axios'
 
 import LevelIcon from '../assets/level.svg'
 
-import {
-  Container,
-  Grid,
-  CardNumber,
-  Card,
-  Error
-} from '../styles/pages/Leaderboard'
-import { RiSignalWifiOffFill } from 'react-icons/ri'
+import { Container, Grid, CardNumber, Card } from '../styles/pages/Leaderboard'
 
 interface Props {
   initialUsers: any[]
@@ -24,19 +17,6 @@ const Leaderboard: React.FC<Props> = ({ initialUsers }) => {
   const [users, setUsers] = useState(initialUsers)
   const [page, setPage] = useState(0)
   const [loading, setLoading] = useState(false)
-
-  const [isOnline, setIsOnline] = useState(true)
-
-  useEffect(() => {
-    function updateIsOnline() {
-      setIsOnline(navigator.onLine)
-    }
-
-    updateIsOnline()
-
-    window.addEventListener('online', updateIsOnline)
-    window.addEventListener('offline', updateIsOnline)
-  }, [])
 
   async function loadUsers() {
     setLoading(true)
@@ -68,17 +48,7 @@ const Leaderboard: React.FC<Props> = ({ initialUsers }) => {
         <title>Leaderborad | Move.it</title>
       </Head>
 
-      <h1>
-        Leaderboard
-        {!isOnline && (
-          <Error>
-            <h2>
-              <RiSignalWifiOffFill /> Verção em cache!
-            </h2>
-            <p>As informações podem estar desatualizadas!</p>
-          </Error>
-        )}
-      </h1>
+      <h1>Leaderboard</h1>
 
       <Grid ref={leaderboardRef} onScroll={onScroll}>
         <span className="header">Posição</span>

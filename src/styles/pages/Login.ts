@@ -82,11 +82,6 @@ export const Form = styled.div`
     border-radius: 5px;
 
     border: 0;
-
-    :disabled {
-      cursor: not-allowed;
-      background: ${props => props.theme.colors.red};
-    }
   }
 
   @media (max-width: 630px) {
