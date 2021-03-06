@@ -110,7 +110,7 @@ export const Button = styled.button<{ active?: number }>`
         border-radius: 5px;
         border-top-left-radius: 0;
 
-        animation: ${TimeAnimation} ${props => props.active}s linear;
+        animation: ${TimeAnimation} ${props => props.active}s linear forwards;
       }
 
       :not(:disabled):hover {
