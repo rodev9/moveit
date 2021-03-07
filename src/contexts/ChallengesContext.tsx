@@ -1,9 +1,16 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 
 import axios from 'axios'
 
 import challenges from '../../challenges.json'
 
+import ReCAPTCHA from 'react-google-recaptcha'
 import LevelUpModal from '../components/LevelUpModal'
 
 import EyeIcon from '../assets/eye.png'
@@ -48,6 +55,8 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
   const [challenge, setChallenge] = useState(null)
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
 
+  const captchaRef = useRef<ReCAPTCHA>(null)
+
   const xpToNextLevel = Math.pow((level + 1) * 4, 2)
 
   useEffect(() => {
@@ -85,7 +94,12 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
   async function completeChallenge() {
     if (!challenge) return
 
-    const response = await axios.post('/api/completeChallenge', { challenge })
+    const captchaToken = await captchaRef.current.executeAsync()
+
+    const response = await axios.post('/api/completeChallenge', {
+      challenge,
+      captchaToken
+    })
 
     setXp(response.data.xp)
     setChallengesCompleted(response.data.challengesCompleted)
@@ -113,6 +127,13 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
       }}
     >
       {children}
+
+      <ReCAPTCHA
+        sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITEKEY}
+        size="invisible"
+        hl="pt"
+        ref={captchaRef}
+      />
 
       {isLevelUpModalOpen && <LevelUpModal />}
     </ChallengesContext.Provider>
