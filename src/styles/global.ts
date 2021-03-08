@@ -57,4 +57,22 @@ export default createGlobalStyle<{ sidebarVisible: boolean }>`
         }
       }
     `}
+  
+  /* NProgress */
+  #nprogress {
+    .bar {
+      background: ${props => props.theme.colors.primary};
+    }
+
+    .peg {
+      box-shadow: 0 0 10px ${props =>
+        props.theme.colors.primary}, 0 0 5px ${props =>
+  props.theme.colors.primary};
+    }
+
+    .spinner-icon {
+      border-top-color: ${props => props.theme.colors.primary};
+      border-left-color: ${props => props.theme.colors.primary};
+    }
+  }
 `
