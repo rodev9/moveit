@@ -17,7 +17,7 @@ const Welcome: React.FC = () => {
     {
       img: <Work />,
       text:
-        'Nos dias de hoje, estamos cada vez mais tempo à frente de ecrãs. O problema é que ficarmos muito tempo sentados e com os olhos fixos num só lugar, o que não é nada bom para a nossa saúde.'
+        'Nos dias de hoje, estamos cada vez mais tempo à frente de ecrãs. O problema é que ficarmos muito tempo sentados e com os olhos fixos num só lugar não é nada bom para a nossa saúde.'
     },
     {
       img: <Time />,
