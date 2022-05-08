@@ -44,7 +44,7 @@ O desenvolvimento deste projeto foi iniciado na Trilha React da **[Next Level We
 O layout deste projeto foi criado pelo **[Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/)** e está disponível no figma [neste link](https://www.figma.com/file/ge20pu3ofMOKoliUyKx1Nl/Move.it-1.0)
 
 ## 🚀 Como executar
-* Clone o repositório com `git clone https://github.com/romilodev/moveit.git [NOME_DO_PROJETO]`
+* Clone o repositório com `git clone https://github.com/rodev9/moveit.git [NOME_DO_PROJETO]`
 * Entre na pasta do projeto com `cd [NOME_DO_PROJETO]`
 * Instale as dependências com `yarn` ou `npm i`
 * Inicie o servidor com `yarn dev` ou `npm run dev`
@@ -56,4 +56,4 @@ Este projeto está sob a licença MIT. Veja o ficheiro [LICENSE](LICENSE.md) par
 
 ---
 
-<p align="center">Desenvolvido com 🧡 por <a href="https://romilo.vercel.app/">Romilo</a></p>
+<p align="center">Desenvolvido com 🧡 por Rodrigo</p>
